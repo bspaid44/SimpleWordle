@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>WordleTry</id>
+    <version>1.0.0</version>
+    <authors>WordleTry</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="CsvHelper" version="30.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\bspaid\source\repos\Wordle\WordleTry\bin\Release\net7.0\WordleTry.runtimeconfig.json" target="lib\net7.0\WordleTry.runtimeconfig.json" />
+    <file src="C:\Users\bspaid\source\repos\Wordle\WordleTry\bin\Release\net7.0\WordleTry.dll" target="lib\net7.0\WordleTry.dll" />
+  </files>
+</package>
