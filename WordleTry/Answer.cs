@@ -5,44 +5,36 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordleTry.Enums;
+using WordleTry.Models;
 
 namespace WordleTry
 {
-
-    public enum LetterStatus
-    {
-        Empty = 0,          // "This space does not contain a letter."
-        Wrong = 1,          // "This letter is not in the word."
-        WrongPosition = 2,  // "This letter is in the word, but not in this position."
-        Correct = 3         // "This letter is in the word in this position."
-    }
-
     public class Aback
     {
-        public string word { get; set; }
-        public int index { get; set; }
+        public WordRecord _wordRecord;
+
+        public Aback(WordRecord wordRecord) 
+        {
+            _wordRecord = wordRecord;
+        }
 
         public static string ReadCsv()
         {
             using (var reader = new StreamReader("word-bank.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                var record = new Aback();
-                var records = csv.GetRecords<Aback>();
+                var records = csv.GetRecords<WordRecord>();
 
                 string error = "Word cannot be found";
                 Random random = new Random();
                 int rand_num = random.Next(0, 2313);
 
-                foreach (var r in records)
-                {
-                    
-                    string word = r.word;
-                    int index = r.index;
-                    
-                    if (rand_num == index)
+                foreach (var record in records)
+                {                    
+                    if (rand_num == record.Index)
                     {
-                        return word;
+                        return record.Word;
                     }
 
                 } return error;
